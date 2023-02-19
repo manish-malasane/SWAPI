@@ -3,3 +3,4 @@ venv
 *.log
 output.txt
 *.pyc
+__pycache__
