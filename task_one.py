@@ -24,7 +24,7 @@ def get_url(resource: str, resource_id: int) -> str:
 
 
 @timeit
-def main() -> list:
+def main_task() -> list:
     parser = argparse.ArgumentParser(
         prog="Fetching data from star_warsAPI",
         usage="To pull out the names of resources as a list",
@@ -32,7 +32,7 @@ def main() -> list:
     )
 
     parser.add_argument("-c", "--count",
-                        default=15,
+                        default=3,
                         type=int,
                         help="Generates the data for this number of resources from star_warsAPI"
                         )
@@ -84,4 +84,4 @@ def main() -> list:
 
 
 if __name__ == "__main__":
-    print(main())
+    print(main_task())
