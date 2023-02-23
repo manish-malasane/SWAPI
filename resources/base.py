@@ -1,3 +1,9 @@
+"""
+This module specially dedicated for resource base classes where we have to implement all the functions defined under
+this module
+"""
+
+
 class ResourceBase(object):
     """
     Base class representing required methods to be implemented by all resource classes

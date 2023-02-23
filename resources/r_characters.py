@@ -1,10 +1,14 @@
+"""
+Data model for characters resource
+"""
+
 from resources.base import ResourceBase
 from utils.fetch_data import hit_url
 
 
 class RCharacters(ResourceBase):
     """
-    Film class related functionality
+    Characters class related functionality
     """
 
     def __init__(self):

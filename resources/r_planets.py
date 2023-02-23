@@ -1,3 +1,6 @@
+"""
+Data model for planet resource
+"""
 from resources.base import ResourceBase
 from utils.fetch_data import hit_url
 
