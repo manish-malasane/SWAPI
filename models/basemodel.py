@@ -1,8 +1,15 @@
+"""
+This is a module specially dedicated for different types of data models
+"""
+
 from pydantic import BaseModel
 from datetime import datetime
 
 
 class Base(BaseModel):
+    """
+    Class for common key`s which we are using in data models of different resources
+    """
 
     url: str
     created: datetime
