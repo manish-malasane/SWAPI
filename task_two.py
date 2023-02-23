@@ -1,3 +1,9 @@
+"""
+This module we can use as a CLI
+This module returns the only names of resources as a list of str which works in film - 1.
+In this module we are also returning the data of film - 1 in output.txt file
+"""
+
 import json
 import argparse
 from typing import Dict, List
@@ -11,18 +17,27 @@ URL = "https://swapi.dev/api/films/1/"
 
 
 def first_task() -> Dict:
+    """
+    Fetches the data of URL which is mentioned above in module
+    """
     response = requests.get(URL)
     result = response.json()
     return result
 
 
 def write_data_in_file(data: Dict):
+    """
+    Writes a film - 1 data in output.txt file
+    """
     with open("output.txt", "w") as foo:
         foo.write(json.dumps(data))
 
 
 @timeit
 def main_task(data: Dict) -> List:
+    """
+    Returns the only names of the passed resource from film - 1
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument("-r", "--resource",
                         choices=["characters",

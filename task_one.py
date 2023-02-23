@@ -1,4 +1,10 @@
+"""
+We can use this as a CLI (command line interface)
+From this module we get the name`s of any 15 singular resource URL`s of passed resource
+"""
 import argparse
+from typing import List
+from pprint import pprint
 
 import requests
 
@@ -7,8 +13,7 @@ from utils.randgen import ProduceNum
 
 
 def get_url(resource: str, resource_id: int) -> str:
-    f"""
-
+    """
     Args:
         resource: "https://swapi.dev/api/people/1/"(like this)
         resource_id: integer
@@ -24,7 +29,10 @@ def get_url(resource: str, resource_id: int) -> str:
 
 
 @timeit
-def main_task() -> list:
+def main_task() -> List[str]:
+    """
+    This function is for returning the name of 15 singular resource URL`s as list of str`s
+    """
     parser = argparse.ArgumentParser(
         prog="Fetching data from star_warsAPI",
         usage="To pull out the names of resources as a list",
@@ -57,7 +65,7 @@ def main_task() -> list:
                                  "vehicles",
                                  "species",
                                  "planets",
-                                 "root"]
+                                 ]
                         )
 
     argument = parser.parse_args()
@@ -84,4 +92,4 @@ def main_task() -> list:
 
 
 if __name__ == "__main__":
-    print(main_task())
+    pprint(main_task())
