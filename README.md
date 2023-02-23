@@ -28,3 +28,21 @@ TASK - 2
         - Then we have to list down only first name and last name of the character who worked in 1st film [ LIST FORMAT]
         - Also we have to list down the names of planets and vehicles which are in 1st film in [ LIST FORMAT]
 ```
+
+```
+TASK - 3
+1. TODO - import all resource classes here
+2. TODO - get count of each resource      
+3. TODO - get singular resource URL from each resource
+    - for example,
+    - hit plural URL of starships and that will list all starships data
+    - iterate on each starship data and capture singular URLs
+    - all_starship_data = data.get("results")
+    - you will iterate on `all_starship_data`,
+4. TODO - pull data from random 3 "singular" resource URLs
+    - utilize`utils` package to produce random 3 numbers from resource ids
+    - and pull data for them
+5. TODO - convert the script into CLI application
+6. TODO - pretty print output (from pprint import pprint)
+
+```
