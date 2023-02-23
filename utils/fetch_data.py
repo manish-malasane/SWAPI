@@ -16,8 +16,8 @@ def hit_url(url):
     Returns: Response of the url in int data type
 
     """
-    response_ = requests.get(url)
-    if response_.status_code != 200:
-        response_.raise_for_status()
+    response = requests.get(url)
+    if response.status_code != 200:
+        response.raise_for_status()
     else:
-        return response_
+        return response

@@ -9,10 +9,10 @@ from time import time
 def timeit(func):
     def wrapper(*args, **kwargs):
         start = time()
-        result = func(*args, **kwargs)
+        result_ = func(*args, **kwargs)
         end = time()
 
         print(f"[ INFO ] Time to execute ::- {end - start}")
 
-        return result
+        return result_
     return wrapper

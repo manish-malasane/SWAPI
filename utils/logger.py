@@ -13,10 +13,10 @@ def logger(func):
     def wrapper(url):
         try:
             logging.info(f"Fetching the data from url - {url}")
-            foo = func(url)
-            logging.info(f"success code - {foo.status_code}")
+            bar = func(url)
+            logging.info(f"success code - {bar.status_code}")
         except TypeError:
             logging.error(f"There are some errors while fetching the data from url - {url}")
 
-        return foo
+        return bar
     return wrapper

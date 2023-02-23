@@ -12,7 +12,7 @@ class ProduceNum:
         self.limit = limit
 
     def __iter__(self):
-        counter = self.start
-        while counter <= self.limit:
+        counter_ = self.start
+        while counter_ <= self.limit:
             yield random.randint(self.start, self.end)
-            counter += 1
+            counter_ += 1
