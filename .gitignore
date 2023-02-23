@@ -1,0 +1,6 @@
+venv/
+.idea/
+*.log
+output.txt
+*310.pyc
+__pycache__
