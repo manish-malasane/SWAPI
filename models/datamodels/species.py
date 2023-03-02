@@ -1,7 +1,7 @@
 """
 pydantic model for species data coming from https://swapi.dev/api/species
 """
-from typing import Optional, List
+from typing import Optional, List, Union
 from models.basemodel import Base
 
 
@@ -15,8 +15,9 @@ class Species(Base):
     average_height: str
     skin_colors: str
     hair_colors: str
+    eye_colors: str
     average_lifespan: str
-    homeworld: str
+    homeworld: Union[str | None]
     language: str
 
     people: Optional[List[str]]

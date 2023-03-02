@@ -21,3 +21,4 @@ def hit_url(url):
         response.raise_for_status()
     else:
         return response
+    
