@@ -264,7 +264,7 @@ if __name__ == "__main__":
                     "release_date",
                     "created",
                     "edited",
-                    "url"
+                    "url",
                     ]
     film_values = [film_data.title,
                    film_data.episode_id,
