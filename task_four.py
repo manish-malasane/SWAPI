@@ -11,6 +11,7 @@ from models.datamodels.vehicles import Vehicles
 from dal.db_conn_helper import conn_toml
 from dal.dml import insert_resource
 from utils.fetch_data import hit_url
+from utils.time import timeit
 
 
 def store_characters_data():
@@ -23,7 +24,10 @@ def store_characters_data():
                     "eye_color",
                     "birth_year",
                     "gender",
-                    "homeworld"
+                    "homeworld",
+                    "created",
+                    "edited",
+                    "url"
                     ]
     for char in characters:
         response = hit_url(char)
@@ -37,7 +41,10 @@ def store_characters_data():
                        char_data.eye_color,
                        char_data.birth_year,
                        char_data.gender,
-                       char_data.homeworld
+                       char_data.homeworld,
+                       char_data.created.strftime("%y-%m-%d"),
+                       char_data.edited.strftime("%y-%m-%d"),
+                       char_data.url
                        ]
         char_id = int(char_data.url.split("/")[-2])
         insert_resource("characters",
@@ -57,7 +64,10 @@ def store_planets_data():
                       "gravity",
                       "terrain",
                       "surface_water",
-                      "population"
+                      "population",
+                      "created",
+                      "edited",
+                      "url"
                       ]
 
     for planet in planets:
@@ -72,7 +82,10 @@ def store_planets_data():
                          planet_data.gravity,
                          planet_data.terrain,
                          planet_data.surface_water,
-                         planet_data.population
+                         planet_data.population,
+                         planet_data.created.strftime("%y-%m-%d"),
+                         planet_data.edited.strftime("%y-%m-%d"),
+                         planet_data.url
                          ]
 
         planet_id = int(planet_data.url.split("/")[-2])
@@ -95,7 +108,10 @@ def store_vehicles_data():
                        "passengers",
                        "cargo_capacity",
                        "consumables",
-                       "vehicle_class"
+                       "vehicle_class",
+                       "created",
+                       "edited",
+                       "url"
                        ]
 
     for vehicle in vehicles:
@@ -112,7 +128,10 @@ def store_vehicles_data():
                           vehicle_data.passengers,
                           vehicle_data.cargo_capacity,
                           vehicle_data.consumables,
-                          vehicle_data.vehicle_class
+                          vehicle_data.vehicle_class,
+                          vehicle_data.created.strftime("%y-%m-%d"),
+                          vehicle_data.edited.strftime("%y-%m-%d"),
+                          vehicle_data.url
                           ]
 
         vehicle_id = int(vehicle_data.url.split("/")[-2])
@@ -138,7 +157,10 @@ def store_starships_data():
                         "consumables",
                         "hyperdrive_rating",
                         "MGLT",
-                        "starship_class"
+                        "starship_class",
+                        "created",
+                        "edited",
+                        "url"
                         ]
 
     for starship in starships:
@@ -157,7 +179,10 @@ def store_starships_data():
                            starship_data.consumables,
                            starship_data.hyperdrive_rating,
                            starship_data.MGLT,
-                           starship_data.starship_class
+                           starship_data.starship_class,
+                           starship_data.created.strftime("%y-%m-%d"),
+                           starship_data.edited.strftime("%y-%m-%d"),
+                           starship_data.url
                            ]
 
         starship_id = int(starship_data.url.split("/")[-2])
@@ -180,7 +205,10 @@ def store_species_data():
                       "eye_colors",
                       "average_lifespan",
                       "homeworld",
-                      "language"
+                      "language",
+                      "created",
+                      "edited",
+                      "url"
                       ]
 
     for specie in species:
@@ -197,6 +225,9 @@ def store_species_data():
                          specie_data.average_lifespan,
                          specie_data.homeworld,
                          specie_data.language,
+                         specie_data.created.strftime("%y-%m-%d"),
+                         specie_data.edited.strftime("%y-%m-%d"),
+                         specie_data.url
                          ]
 
         specie_id = int(specie_data.url.split("/")[-2])
@@ -206,6 +237,15 @@ def store_species_data():
                         specie_id,
                         specie_columns,
                         specie_values)
+
+
+@timeit
+def main():
+    store_characters_data()
+    store_planets_data()
+    store_vehicles_data()
+    store_starships_data()
+    store_species_data()
 
 
 if __name__ == "__main__":
@@ -242,9 +282,4 @@ if __name__ == "__main__":
                              film_id,
                              film_columns,
                              film_values)
-
-    store_characters_data()
-    store_planets_data()
-    store_vehicles_data()
-    store_starships_data()
-    store_species_data()
+    main()

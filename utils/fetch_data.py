@@ -17,6 +17,7 @@ def hit_url(url):
 
     """
     response = requests.get(url)
+    print(f"[ INFO ] -> {response} - {url}")
     if response.status_code != 200:
         response.raise_for_status()
     else:

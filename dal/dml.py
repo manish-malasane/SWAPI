@@ -9,10 +9,11 @@ def insert_resource(
                    ):
 
     column_names = ", ".join(columns)
+
     try:
         value_fields = ", ".join(values)
     except (pydantic.error_wrappers.ValidationError, TypeError) as ex:
-        print(f"[ ERROR ] - {ex}")
+        print(f"[ ERROR ] - None type values not allowed specify `str`-> {ex}")
 
     value_fields = ""
 
@@ -21,6 +22,8 @@ def insert_resource(
             value_fields = value_fields + '''"''' + value + '''"''' + ""","""
         elif isinstance(value, int):
             value_fields = value_fields + str(value) + ""","""
+        else:
+            value_fields = value_fields + "Null" + ""","""
 
     value_fields = value_fields.rstrip(", ")
     result = None
@@ -33,7 +36,7 @@ def insert_resource(
             result = cursor.execute(sql_magic)
             conn.commit()
         except IntegrityError as fp:
-            print(f"[ ERROR ] This data is already stored in database")
+            print(f"[ ERROR ] This data is already stored in database -> {fp}")
     return result
 
 
@@ -42,7 +45,7 @@ if __name__ == "__main__":
         "species", "species_id", 1,
         ["name", "classification", "designation", "average_height", "skin_colors", "hair_colors",
          "eye_colors", "average_lifespan", "homeworld", "language"],
-        ["Human", "mammal", "sentient", "180", "caucasian, black, asian, hispanic","blonde, brown, black, red",
+        ["Human", "mammal", "sentient", "180", "caucasian, black, asian, hispanic", "blonde, brown, black, red",
          "brown, blue, green, hazel, grey, amber", "120", "https://swapi.dev/api/planets/9/", "Galactic Basic"]
     )
 # """
