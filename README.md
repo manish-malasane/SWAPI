@@ -46,3 +46,12 @@ TASK - 3
 6. TODO - pretty print output (from pprint import pprint)
 
 ```
+
+```
+TASK - 4
+1. TODO - import the resource module related to films
+2. TODO - import all the pydantic models of all the resources
+3. TODO - estabalishing the conn
+4. TODO - importing dml module for creating insert query dynamically for each data 
+5. TODO - store all the data related to film-1 in database (separately)
+```
