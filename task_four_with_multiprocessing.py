@@ -15,7 +15,7 @@ from dal.dml import insert_resource
 from utils.fetch_data import fetch_data
 from utils.time import timeit
 
-pool = multiprocessing.Pool(4)
+pool = multiprocessing.Pool(4)  # multithreading pool object
 
 
 def store_characters_data():
@@ -290,5 +290,7 @@ if __name__ == "__main__":
     main()
 
 
+
 # not able to do changes
+
 
