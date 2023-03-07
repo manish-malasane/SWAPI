@@ -1,1 +1,2 @@
-#merging conflict
+
+# hi all
