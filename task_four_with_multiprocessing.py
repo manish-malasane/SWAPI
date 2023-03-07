@@ -288,9 +288,3 @@ if __name__ == "__main__":
                              film_columns,
                              film_values)
     main()
-
-
-
-# not able to do changes
-
-
