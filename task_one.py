@@ -36,37 +36,46 @@ def main_task() -> List[str]:
     parser = argparse.ArgumentParser(
         prog="Fetching data from star_warsAPI",
         usage="To pull out the names of resources as a list",
-        description="Display the data from star_warsAPI"
+        description="Display the data from star_warsAPI",
     )
 
-    parser.add_argument("-c", "--count",
-                        default=3,
-                        type=int,
-                        help="Generates the data for this number of resources from star_warsAPI"
-                        )
-    parser.add_argument("-s", "--start",
-                        default=1,
-                        type=int,
-                        help="Generates the resource data from this resource_id"
-                        )
+    parser.add_argument(
+        "-c",
+        "--count",
+        default=3,
+        type=int,
+        help="Generates the data for this number of resources from star_warsAPI",
+    )
+    parser.add_argument(
+        "-s",
+        "--start",
+        default=1,
+        type=int,
+        help="Generates the resource data from this resource_id",
+    )
 
-    parser.add_argument("-e", "--end",
-                        default=83,
-                        type=int,
-                        help="Generates the resource data up to this resource_id"
-                        )
+    parser.add_argument(
+        "-e",
+        "--end",
+        default=83,
+        type=int,
+        help="Generates the resource data up to this resource_id",
+    )
 
-    parser.add_argument("-r", "--resource",
-                        default="people",
-                        type=str,
-                        choices=["people",
-                                 "films",
-                                 "starships",
-                                 "vehicles",
-                                 "species",
-                                 "planets",
-                                 ]
-                        )
+    parser.add_argument(
+        "-r",
+        "--resource",
+        default="people",
+        type=str,
+        choices=[
+            "people",
+            "films",
+            "starships",
+            "vehicles",
+            "species",
+            "planets",
+        ],
+    )
 
     argument = parser.parse_args()
     print(f"Passed arguments are : {argument}")
@@ -84,7 +93,6 @@ def main_task() -> List[str]:
 
         response = requests.get(url)
         if response.status_code == 200:
-
             result = response.json()
             content.append(result.get("name"))
 

@@ -25,13 +25,20 @@ from models.datamodels.vehicles import Vehicles
 from models.datamodels.species import Species
 from models.datamodels.starships import Starships
 
+film_urls = []
+planet_urls = []
+specie_urls = []
+vehicle_urls = []
+starship_urls = []
+character_urls = []
+
 
 def films_data() -> None:
     """
 
-     Total number of films: (int),
-             URL`s: (List[str]),
-             Validate Data: (dict)
+    Total number of films: (int),
+            URL`s: (List[str]),
+            Validate Data: (dict)
 
     """
     film_obj = RFilms()
@@ -54,7 +61,7 @@ def planets_data() -> None:
                 URL`s: (List[str]),
                 Validate Data: (dict)
 
-       """
+    """
     planet_obj = RPlanets()
     total_planets = planet_obj.get_count()
     print(f"Total number of planets :\n {total_planets}")
@@ -75,7 +82,7 @@ def species_data() -> None:
                 URL`s: (List[str]),
                 Validate Data: (dict)
 
-       """
+    """
     specie_obj = RSpecies()
     total_species = specie_obj.get_count()
     print(f"Total number of species :\n {total_species}")
@@ -96,7 +103,7 @@ def vehicles_data() -> None:
                 URL`s: (List[str]),
                 Validate Data: (dict)
 
-       """
+    """
     vehicle_obj = RVehicles()
     total_vehicles = vehicle_obj.get_count()
     print(f"Total number of vehicles :\n {total_vehicles}")
@@ -117,7 +124,7 @@ def characters_data() -> None:
                 URL`s: (List[str]),
                 Validate Data: (dict)
 
-       """
+    """
     character_obj = RCharacters()
     total_characters = character_obj.get_count()
     print(f"Total number of characters :\n {total_characters}")
@@ -138,7 +145,7 @@ def starships_data() -> None:
                 URL`s: (List[str]),
                 Validate Data: (dict)
 
-       """
+    """
     starship_obj = RStarships()
     total_starships = starship_obj.get_count()
     print(f"Total number of starships :\n {total_starships}")
@@ -175,20 +182,15 @@ def random_data():
     resource URL`s of passed resource.
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("-l", "--limit",
-                        default=3, type=int)
-    parser.add_argument("-s", "--start",
-                        default=1, type=int)
-    parser.add_argument("-e", "--end",
-                        default=10, type=int)
-    parser.add_argument("-r", "--resource",
-                        default="people",
-                        choices=["films",
-                                 "planets",
-                                 "people",
-                                 "starships",
-                                 "species",
-                                 "vehicles"])
+    parser.add_argument("-l", "--limit", default=3, type=int)
+    parser.add_argument("-s", "--start", default=1, type=int)
+    parser.add_argument("-e", "--end", default=10, type=int)
+    parser.add_argument(
+        "-r",
+        "--resource",
+        default="people",
+        choices=["films", "planets", "people", "starships", "species", "vehicles"],
+    )
     argument = parser.parse_args()
     print(f"Passed arguments are -> {argument}")
     obj = ProduceNum(argument.start, argument.end, argument.limit)

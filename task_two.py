@@ -39,14 +39,13 @@ def main_task(data: Dict) -> List:
     Returns the only names of the passed resource from film - 1
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("-r", "--resource",
-                        choices=["characters",
-                                 "films",
-                                 "planets",
-                                 "starships",
-                                 "vehicles"],
-                        default="characters",
-                        help="Pull out the data for passed resource")
+    parser.add_argument(
+        "-r",
+        "--resource",
+        choices=["characters", "films", "planets", "starships", "vehicles"],
+        default="characters",
+        help="Pull out the data for passed resource",
+    )
     argument = parser.parse_args()
     print(f"Passed arguments are : {argument}")
     response_data = data.get(argument.resource)

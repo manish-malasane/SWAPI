@@ -9,8 +9,7 @@ class ResourceBase(object):
     Base class representing required methods to be implemented by all resource classes
     """
 
-    resources = ["people", "planets", "starships",
-                 "vehicles", "films", "species"]
+    resources = ["people", "planets", "starships", "vehicles", "films", "species"]
 
     def __init__(self):
         self.home_url = "https://swapi.dev/"

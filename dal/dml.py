@@ -6,8 +6,7 @@ from pymysql import IntegrityError
 
 def insert_resource(
     table_name: str, primary_key: str, primary_value: int, columns: List, values: List
-                   ):
-
+):
     column_names = ", ".join(columns)
 
     try:
@@ -42,11 +41,33 @@ def insert_resource(
 
 if __name__ == "__main__":
     insert_resource(
-        "species", "species_id", 1,
-        ["name", "classification", "designation", "average_height", "skin_colors", "hair_colors",
-         "eye_colors", "average_lifespan", "homeworld", "language"],
-        ["Human", "mammal", "sentient", "180", "caucasian, black, asian, hispanic", "blonde, brown, black, red",
-         "brown, blue, green, hazel, grey, amber", "120", "https://swapi.dev/api/planets/9/", "Galactic Basic"]
+        "species",
+        "species_id",
+        1,
+        [
+            "name",
+            "classification",
+            "designation",
+            "average_height",
+            "skin_colors",
+            "hair_colors",
+            "eye_colors",
+            "average_lifespan",
+            "homeworld",
+            "language",
+        ],
+        [
+            "Human",
+            "mammal",
+            "sentient",
+            "180",
+            "caucasian, black, asian, hispanic",
+            "blonde, brown, black, red",
+            "brown, blue, green, hazel, grey, amber",
+            "120",
+            "https://swapi.dev/api/planets/9/",
+            "Galactic Basic",
+        ],
     )
 # """
 # DML stands for Data Manipulation Language

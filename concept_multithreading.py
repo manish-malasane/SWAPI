@@ -11,6 +11,7 @@ def timeit(func):
 
         print(f"[ INFO ] Time taken to execute :-> \t {end - start}")
         return result
+
     return wrapper
 
 
@@ -31,15 +32,15 @@ def fetch_data(url):
 @timeit
 def multithreading():
     """
-        Returns:
-        NOTE:
-            ThreadPool object can be created with whatever number of threads
-            we would like.
-            For example, `pool = ThreadPool(100)`
-            `pool` object has `map` method which distributes the collection elements
-            across available threads in pool.
-            `pool.map()` function returns a list object
-        """
+    Returns:
+    NOTE:
+        ThreadPool object can be created with whatever number of threads
+        we would like.
+        For example, `pool = ThreadPool(100)`
+        `pool` object has `map` method which distributes the collection elements
+        across available threads in pool.
+        `pool.map()` function returns a list object
+    """
     urls = get_urls()
     pool = ThreadPool(10)
     result = pool.map(fetch_data, urls)

@@ -15,4 +15,5 @@ def timeit(func):
         print(f"[ INFO ] Time to execute ::- {end - start}")
 
         return result_
+
     return wrapper

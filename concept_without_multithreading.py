@@ -10,6 +10,7 @@ def timeit(func):
 
         print(f"[ INFO ] Time taken to execute :-> \t {end - start}")
         return result
+
     return wrapper
 
 

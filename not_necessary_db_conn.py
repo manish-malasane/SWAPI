@@ -9,12 +9,14 @@ from pprint import pprint
 import pymysql.cursors
 
 # Connect to the database
-connection = pymysql.connect(host='127.0.0.1',
-                             user='root',
-                             port=3306,
-                             password='Aaibaba',
-                             database='meDB',
-                             cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect(
+    host="127.0.0.1",
+    user="root",
+    port=3306,
+    password="Aaibaba",
+    database="meDB",
+    cursorclass=pymysql.cursors.DictCursor,
+)
 
 with connection:
     with connection.cursor() as cursor:
