@@ -2,5 +2,5 @@ venv/
 .idea/
 *.log
 output.txt
-*310.pyc
+*.pyc
 __pycache__
