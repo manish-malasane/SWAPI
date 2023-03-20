@@ -25,7 +25,10 @@ def task_one(resource, count, start, end):
         response = requests.get(url)
         if response.status_code == 200:
             result = response.json()
-            content.append(result.get("name"))
+            try:
+                content.append(result["name"])
+            except KeyError:
+                content.append(result.get("title"))
 
     output = {"Count": len(content), "Names": content}
 
